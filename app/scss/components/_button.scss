@@ -1,0 +1,24 @@
+@use '../util/' as u;
+
+.button {
+    display: inline-block;
+    background-color: var(--accent-color);
+    color: var(--background-color);
+    padding: 1em 2em;
+    border-radius: 50rem;
+    font-weight: 500;
+    transition: var(--ease);
+
+    &:hover {
+        background-color: hsl(224, 58%, 49%);
+    }
+
+    &--flex {
+        display: inline-flex;
+        align-items: center;
+    }
+}
+
+.uil-message {
+    margin-left: 0.25rem;
+}

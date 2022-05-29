@@ -1,0 +1,10 @@
+:root {
+    --background-color: hsl(0, 0%, 100%);
+    --text-color: hsl(202, 56%, 12%);
+    --accent-color: hsl(224, 89%, 60%);
+    --light-color: hsl(0, 0%, 46%);
+}
+
+.blue {
+    color: var(--accent-color);
+}

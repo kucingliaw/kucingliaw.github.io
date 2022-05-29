@@ -1,0 +1,35 @@
+@use '../util/' as u;
+
+.about {
+    &__container {
+        margin-top: 2rem;
+        @include u.breakpoint(medium) {
+            grid-template-columns: 1fr 1fr;
+            margin-top: 5rem;
+        }
+    }
+    &__img {
+        border-radius: 0.5rem;
+
+        @include u.breakpoint(medium) {
+            width: u.rem(350);
+        }
+    }
+
+    &__data {
+        text-align: center;
+
+        @include u.breakpoint(medium) {
+            align-self: center;
+        }
+    }
+
+    &__title {
+        font-weight: 600;
+    }
+
+    &__description {
+        color: var(--light-color);
+        font-size: u.rem(14);
+    }
+}

@@ -1,0 +1,25 @@
+@use '../util' as u; // use * as a wildcard
+
+html {
+    box-sizing: border-box;
+    font-size: 100%;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+body {
+    margin: var(--header-height) 0 0 0;
+    padding: 0;
+    font-family: u.$font;
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}

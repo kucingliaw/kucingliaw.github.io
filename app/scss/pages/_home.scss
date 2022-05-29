@@ -1,0 +1,70 @@
+@use '../util/' as u;
+
+.home {
+    @include u.breakpoint-down(small) {
+        padding-top: 2rem;
+    }
+
+    &__container {
+        gap: 1rem;
+    }
+
+    &__content {
+        padding-top: 3.5rem;
+        align-items: center;
+
+        @include u.breakpoint(medium) {
+            grid-template-columns: 2fr 1fr;
+        }
+    }
+
+    &__image {
+        width: u.rem(250);
+        margin: auto;
+
+        @include u.breakpoint(medium) {
+            order: 2;
+            width: u.rem(250);
+        }
+
+        @include u.breakpoint(large) {
+            order: 2;
+            width: u.rem(350);
+        }
+    }
+
+    &__title {
+        margin-bottom: 2rem;
+    }
+
+    &__subtitle {
+        margin-bottom: 2rem;
+    }
+
+    &__scroll {
+        display: none;
+
+        &-button {
+            color: var(--accent-color);
+            transition: 0.3s;
+
+            &:hover {
+                transform: translateY(0.25rem);
+            }
+        }
+
+        &-mouse {
+            font-size: 2rem;
+        }
+
+        &-name {
+            color: var(--text-color);
+            font-size: u.rem(12);
+            margin-right: 0.25rem;
+        }
+
+        &-arrow {
+            font-size: 1.25rem;
+        }
+    }
+}

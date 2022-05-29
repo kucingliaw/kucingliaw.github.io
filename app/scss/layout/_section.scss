@@ -1,0 +1,21 @@
+@use '../util/' as u;
+
+.section {
+    padding: 5rem 0;
+
+    &__title {
+        color: var(--accent-color);
+    }
+
+    &__subtitle {
+        font-size: u.rem(14);
+        color: var(--light-color);
+        display: block;
+        margin-bottom: 3rem;
+    }
+
+    &__title,
+    &__subtitle {
+        text-align: center;
+    }
+}

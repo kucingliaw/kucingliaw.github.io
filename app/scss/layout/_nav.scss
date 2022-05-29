@@ -1,0 +1,25 @@
+@use '../util/' as u;
+
+.nav {
+    max-width: u.rem(968);
+    height: var(--header-height);
+    display: flex;
+    align-items: center;
+
+    &__menu {
+        @include u.breakpoint-down(small) {
+            display: none;
+        }
+    }
+
+    &__logo,
+    &__link {
+        color: var(--text-color);
+        font-weight: 600;
+        transition: var(--ease);
+    }
+
+    &__link:hover {
+        color: var(--accent-color);
+    }
+}

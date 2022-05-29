@@ -1,0 +1,49 @@
+@use '../util/' as u;
+
+.contact {
+    &__container {
+        row-gap: 3rem;
+    }
+
+    &__information {
+        display: flex;
+        margin-bottom: 2rem;
+    }
+
+    &__icon {
+        font-size: 2rem;
+        color: var(--accent-color);
+        margin-right: 0.75rem;
+        margin-left: 0.25rem;
+    }
+
+    &__title {
+        margin-bottom: 0.2rem;
+        font-weight: 600;
+    }
+
+    &__subtitle {
+        font-size: u.rem(14);
+        color: var(--light-color);
+    }
+
+    &__content {
+        background-color: hsl(0, 0%, 95%);
+        border-radius: 0.5rem;
+        padding: 0.75rem 1rem 0.25rem;
+    }
+
+    &__label {
+        font-size: u.rem(14);
+    }
+
+    &__input {
+        width: 100%;
+        background-color: #f2f2f2;
+        color: var(--light-color);
+        font-family: u.$font;
+        border: none;
+        outline: none;
+        padding: 0.25rem 0.5rem 0.5rem 0;
+    }
+}

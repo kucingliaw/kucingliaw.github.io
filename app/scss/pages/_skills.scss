@@ -1,0 +1,63 @@
+@use '../util/' as u;
+
+.skills {
+    &__container {
+        row-gap: 0;
+    }
+
+    &__header {
+        display: flex;
+        align-items: center;
+        margin-bottom: 2.5rem;
+        cursor: pointer;
+    }
+
+    &__icon {
+        margin-right: 1rem;
+    }
+
+    &__title {
+        margin: 0;
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 0.5rem;
+    }
+
+    &__icon,
+    &__arrow {
+        font-size: 2rem;
+        color: var(--accent-color);
+    }
+
+    &__arrow {
+        transition: 0.4s;
+        margin-left: auto;
+    }
+
+    &__number {
+        color: var(--light-color);
+    }
+
+    &__bar,
+    &__percentage {
+        height: u.rem(5);
+        border-radius: 0.25rem;
+    }
+
+    &__bar {
+        background-color: hsl(224, 100%, 75%);
+    }
+
+    &__percentage {
+        display: block;
+        background-color: var(--accent-color);
+    }
+
+    &__html {
+        width: 50%;
+    }
+
+    &__css {
+        width: 40%;
+    }
+}

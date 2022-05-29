@@ -1,0 +1,13 @@
+.header {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    background-color: var(--background-color);
+    border-bottom: 1px solid hsla(0, 0%, 83%, 0.24);
+
+    ul {
+        gap: 3rem;
+    }
+}
