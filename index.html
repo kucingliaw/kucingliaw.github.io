@@ -51,7 +51,7 @@
                 <div class="home__container container grid">
                     <div class="home__content grid">
                         <div class="home__image">
-                            <img src="app/img/home-img.png" alt="Wawal" />
+                            <img src="app/img/aboutme.svg" alt="Wawal" />
                         </div>
                         <div class="home__data">
                             <h1 class="home__title">
@@ -63,17 +63,6 @@
                                 >Contact</a
                             >
                         </div>
-                    </div>
-                    <div class="home__scroll">
-                        <a
-                            href="#about"
-                            class="home__scroll-button button--flex"
-                        >
-                            <i class="uil uil-mouse-alt home__scroll-mouse"></i>
-                            <span class="home__scroll-name"> Scroll Down </span>
-                            <i class="uil uil-arrow-down home__scroll-arrow">
-                            </i
-                        ></a>
                     </div>
                 </div>
             </section>
@@ -88,11 +77,18 @@
                         class="about__img"
                     />
                     <div class="about__data">
-                        <h3 class="about__title">Maulana Syawal Wiguna</h3>
+                        <h3 class="about__subtitle">Hi, nama saya</h3>
+                        <h1 class="about__title">
+                            Maulana Syawal Wiguna<span class="about__title--dot"
+                                >.</span
+                            >
+                        </h1>
                         <p class="about__description">
-                            Web developer pemula dengan sedikit pengetahuan dan
-                            pengalaman. Terinspirasi untuk menjadi seorang
-                            Fullstack Developer.
+                            Seorang web developer pemula dengan sedikit
+                            pengetahuan dan pengalaman. Terinspirasi untuk
+                            menjadi seorang Fullstack Developer. Suka menonton
+                            film dan mendengarkan musik. Lebih sering bermain
+                            games bersama teman-teman seraya bercanda tawa.
                         </p>
                     </div>
                 </div>
@@ -153,7 +149,7 @@
                     <div>
                         <div class="contact__information">
                             <i class="uil uil-phone contact__icon"></i>
-                            <div>
+                            <div class="contact__data flex">
                                 <h3 class="contact__title">Call Me</h3>
                                 <span class="contact__subtitle"
                                     >0851-5800-xxxx</span
@@ -162,7 +158,7 @@
                         </div>
                         <div class="contact__information">
                             <i class="uil uil-envelope-alt contact__icon"></i>
-                            <div>
+                            <div class="contact__data flex">
                                 <h3 class="contact__title">Email</h3>
                                 <span class="contact__subtitle"
                                     >wawalcrafter@gmail.com</span
@@ -171,7 +167,7 @@
                         </div>
                         <div class="contact__information">
                             <i class="uil uil-map-marker contact__icon"></i>
-                            <div>
+                            <div class="contact__data flex">
                                 <h3 class="contact__title">Location</h3>
                                 <span class="contact__subtitle"
                                     >Jakarta - Indonesia</span
@@ -183,23 +179,32 @@
                     <form action="" class="contact__form grid">
                         <div class="contact__inputs grid">
                             <div class="contact__content">
-                                <label for="" class="contact__label">Name</label
-                                ><input type="text" class="contact__input" />
+                                <label for="name" class="contact__label"
+                                    >Name</label
+                                ><input
+                                    id="name"
+                                    type="text"
+                                    class="contact__input"
+                                />
                             </div>
                             <div class="contact__content">
-                                <label for="" class="contact__label"
+                                <label for="email" class="contact__label"
                                     >Email</label
-                                ><input type="email" class="contact__input" />
+                                ><input
+                                    id="email"
+                                    type="email"
+                                    class="contact__input"
+                                />
                             </div>
                             <div class="contact__content">
                                 <label for="" class="contact__label"
                                     >Message</label
                                 ><textarea
-                                    class="contact__input"
-                                    name=""
-                                    id=""
+                                    class="contact__input contact__input"
+                                    name="message"
+                                    id="message"
                                     cols="0"
-                                    rows="7"
+                                    rows="8"
                                 ></textarea>
                             </div>
                             <div>

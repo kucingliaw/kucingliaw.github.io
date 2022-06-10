@@ -4,7 +4,7 @@
     &__container {
         margin-top: 2rem;
         @include u.breakpoint(medium) {
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: 1fr 2fr;
             margin-top: 5rem;
         }
     }
@@ -17,19 +17,44 @@
     }
 
     &__data {
-        text-align: center;
+        // text-align: center;
 
         @include u.breakpoint(medium) {
             align-self: center;
         }
     }
 
-    &__title {
-        font-weight: 600;
+    &__title--dot {
+        color: var(--accent-color);
+        font-size: u.rem(30);
+
+        @include u.breakpoint(large) {
+            font-size: u.rem(60);
+        }
+    }
+
+    &__title,
+    &__subtitle,
+    &__description {
+        margin-bottom: u.rem(0);
+    }
+
+    &__subtitle {
+        margin-bottom: u.rem(-8);
+
+        @include u.breakpoint(medium) {
+            margin-bottom: u.rem(-5);
+        }
+
+        @include u.breakpoint(large) {
+            margin-bottom: u.rem(-10);
+        }
     }
 
     &__description {
         color: var(--light-color);
         font-size: u.rem(14);
+        text-align: justify;
+        margin-top: u.rem(10);
     }
 }

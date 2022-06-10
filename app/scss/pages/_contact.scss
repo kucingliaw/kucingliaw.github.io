@@ -11,20 +11,31 @@
     }
 
     &__icon {
+        margin-block: auto;
         font-size: 2rem;
         color: var(--accent-color);
         margin-right: 0.75rem;
         margin-left: 0.25rem;
     }
 
+    &__data {
+        flex-direction: column;
+        justify-content: space-between;
+        padding-block: u.rem(2);
+    }
+
     &__title {
-        margin-bottom: 0.2rem;
         font-weight: 600;
     }
 
     &__subtitle {
         font-size: u.rem(14);
         color: var(--light-color);
+    }
+
+    &__title,
+    &__subtitle {
+        margin: 0;
     }
 
     &__content {
@@ -41,9 +52,11 @@
         width: 100%;
         background-color: #f2f2f2;
         color: var(--light-color);
+        font-size: u.rem(14);
         font-family: u.$font;
         border: none;
         outline: none;
         padding: 0.25rem 0.5rem 0.5rem 0;
+        resize: none;
     }
 }

@@ -14,22 +14,25 @@
         align-items: center;
 
         @include u.breakpoint(medium) {
-            grid-template-columns: 2fr 1fr;
+            grid-template-columns: 1fr 1fr;
         }
     }
 
     &__image {
         width: u.rem(250);
-        margin: auto;
+        margin: 0 auto 1.5rem;
 
         @include u.breakpoint(medium) {
             order: 2;
             width: u.rem(250);
+            margin-left: auto;
+            margin-right: 0;
+            margin-bottom: 0;
         }
 
         @include u.breakpoint(large) {
             order: 2;
-            width: u.rem(350);
+            width: u.rem(450);
         }
     }
 
