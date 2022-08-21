@@ -19,3 +19,16 @@ body {
     font-family: u.$font;
     color: var(--gray-900);
 }
+
+img {
+    max-width: 100%;
+}
+
+ul {
+    list-style: none;
+}
+
+button {
+    border: none;
+    outline: none;
+}

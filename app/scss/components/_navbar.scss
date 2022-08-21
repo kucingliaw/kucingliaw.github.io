@@ -6,7 +6,7 @@
     left: 0;
     right: 0;
     height: 5rem;
-
+    background: var(--white);
     font-weight: 600;
 
     &__brand {
@@ -16,7 +16,6 @@
 
     &__links {
         gap: 4rem;
-        list-style: none;
 
         // mobile menu
         @include u.breakpoint-down(md) {

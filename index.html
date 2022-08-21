@@ -11,7 +11,7 @@
             rel="stylesheet"
         />
         <link rel="stylesheet" href="dist/style.css" />
-        <title>Boilerplate</title>
+        <title>Maulana Syawal</title>
     </head>
     <body>
         <!-- Navbar -->
@@ -23,8 +23,8 @@
                 </button>
                 <ul class="navbar__links | flex has-fade fade-out">
                     <li><a href="#main" class="navbar__item">Home</a></li>
-                    <li><a href="#" class="navbar__item">About</a></li>
-                    <li><a href="#" class="navbar__item">Contact</a></li>
+                    <li><a href="#about" class="navbar__item">About</a></li>
+                    <li><a href="#contact" class="navbar__item">Contact</a></li>
                 </ul>
             </div>
         </nav>
@@ -32,13 +32,18 @@
         <!-- Main -->
         <section class="main" id="main">
             <div class="container">
-                <div class="main__wrapper | flex flex-sb">
+                <div class="main__wrapper | flex flex-jc-sb flex-ai-center">
                     <div class="main__data">
                         <h1 class="main__title">I'm Wawal</h1>
                         <p class="main__subtitle">
                             Freelance Front End Developer based in Jakarta,
-                            Indonesia.
+                            Indonesia. If you are looking for Front End
+                            Developer to be a part of your team, Let's shake
+                            hands with me.
                         </p>
+                        <a href="#contact" class="main__btn | btn btn-primary"
+                            >Hire Me</a
+                        >
                     </div>
                     <div class="main__img">
                         <img src="app/img/main.svg" alt="main" />
@@ -46,6 +51,8 @@
                 </div>
             </div>
         </section>
+        <section class="about" id="about"></section>
+        <section class="contact" id="contact"></section>
         <script src="app/js/script.js"></script>
     </body>
 </html>

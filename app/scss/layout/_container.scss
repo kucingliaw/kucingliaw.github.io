@@ -1,6 +1,10 @@
 @use '../util' as u;
 
 .container {
-    width: min(90%, u.rem(1320));
     margin: 0 auto;
+    width: min(90%, u.rem(960));
+
+    @include u.breakpoint-up(xxl) {
+        width: min(90%, u.rem(1200));
+    }
 }
