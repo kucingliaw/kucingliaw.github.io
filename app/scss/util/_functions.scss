@@ -1,0 +1,23 @@
+@use 'sass:math';
+
+@function rem($px) {
+    // if $px has a unit, throw an error
+    @if math.is-unitless($px) {
+        @return math.div($px, 16) + rem;
+    }
+    // divide $px by 16 to return rems
+    @else {
+        @error 'Don\'t use units when using rem() function; only number';
+    }
+}
+
+@function em($px) {
+    // if $px has a unit, throw an error
+    @if math.is-unitless($px) {
+        @return math.div($px, 16) + em;
+    }
+    // divide $px by 16 to return ems
+    @else {
+        @error 'Don\'t use units when using em() function; only number';
+    }
+}

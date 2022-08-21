@@ -1,0 +1,44 @@
+@use '../util/' as u;
+
+h1,
+h2,
+h3 {
+    font-weight: 700;
+    line-height: 1.1;
+    margin-top: 0;
+}
+
+h1 {
+    font-size: u.rem(28);
+
+    @include u.breakpoint-up(md) {
+        font-size: u.rem(46);
+    }
+}
+
+h2 {
+    font-size: u.rem(24);
+
+    @include u.breakpoint-up(md) {
+        font-size: u.rem(36);
+    }
+}
+
+h3 {
+    font-size: u.rem(20);
+
+    @include u.breakpoint-up(md) {
+        font-size: u.rem(28);
+    }
+}
+
+p {
+    margin-top: 0;
+    font-size: u.rem(16);
+}
+
+a,
+a:visited,
+a:active {
+    text-decoration: none;
+}
