@@ -1,0 +1,11 @@
+@use '../util/' as u;
+
+.footer {
+    padding: 1rem;
+
+    &__title {
+        margin: 0;
+        color: var(--gray-600);
+        font-size: u.rem(14);
+    }
+}

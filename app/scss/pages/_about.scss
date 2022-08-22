@@ -8,7 +8,6 @@
     }
 
     &__img {
-        background-image: url(../../img/blob.svg);
         padding: 4rem 2rem 4rem 4rem;
         width: 35%;
 
@@ -69,7 +68,8 @@
         gap: 1rem;
 
         &--icon {
-            width: 1.5rem;
+            color: var(--gray-600);
+            font-size: 2rem;
         }
     }
 }

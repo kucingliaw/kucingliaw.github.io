@@ -4,12 +4,28 @@
         <meta charset="UTF-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        <!-- Google Fonts -->
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link
             href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
             rel="stylesheet"
         />
+
+        <!-- Iconscout -->
+        <link
+            rel="stylesheet"
+            href="https://unicons.iconscout.com/release/v4.0.0/css/line.css"
+        />
+
+        <!-- AOS JS -->
+        <link
+            href="https://unpkg.com/aos@2.3.1/dist/aos.css"
+            rel="stylesheet"
+        />
+
+        <!-- Style CSS -->
         <link rel="stylesheet" href="dist/style.css" />
         <title>Maulana Syawal</title>
         <link rel="icon" href="app/img/thunder.svg" />
@@ -18,14 +34,20 @@
         <!---------- Navbar ---------->
         <nav class="navbar | flex flex-ai-center">
             <div class="container flex flex-jc-sb flex-ai-center">
-                <a href="#" class="navbar__brand">Wawal</a>
+                <a href="#" class="navbar__brand" data-aos="fade-down">Wawal</a>
                 <button class="navbar__btn">
                     <span></span><span></span><span></span>
                 </button>
                 <ul class="navbar__links | flex has-fade fade-out">
-                    <li><a href="#main" class="navbar__item">Home</a></li>
-                    <li><a href="#about" class="navbar__item">About</a></li>
-                    <li><a href="#contact" class="navbar__item">Contact</a></li>
+                    <li data-aos="fade-down">
+                        <a href="#main" class="navbar__item">Home</a>
+                    </li>
+                    <li data-aos="fade-down">
+                        <a href="#about" class="navbar__item">About</a>
+                    </li>
+                    <li data-aos="fade-down">
+                        <a href="#contact" class="navbar__item">Contact</a>
+                    </li>
                 </ul>
             </div>
         </nav>
@@ -34,7 +56,7 @@
         <section class="main" id="main">
             <div class="container">
                 <div class="main__wrapper | flex flex-jc-sb flex-ai-center">
-                    <div class="main__data">
+                    <div class="main__data" data-aos="fade-right">
                         <h1 class="main__title">I'm Wawal</h1>
                         <p class="main__subtitle">
                             Freelance Front End Developer based in Jakarta,
@@ -46,7 +68,7 @@
                             >Hire Me</a
                         >
                     </div>
-                    <div class="main__img">
+                    <div class="main__img" data-aos="fade-left">
                         <img src="app/img/main.svg" alt="main" />
                     </div>
                 </div>
@@ -56,13 +78,14 @@
         <!---------- About ---------->
         <section class="about" id="about">
             <div class="container">
-                <!-- <h3 class="section__title">About Me</h3> -->
                 <div class="about__wrapper | flex flex-jc-sb flex-ai-center">
-                    <div class="about__img">
+                    <!-- About Image -->
+                    <div class="about__img" data-aos="fade-down">
                         <img src="app/img/about.png" alt="Wawal" />
                     </div>
 
-                    <div class="about__data">
+                    <!-- About Data -->
+                    <div class="about__data" data-aos="fade-down">
                         <span>Discover</span>
                         <h2 class="about__title">About Me</h2>
                         <p class="about__description">
@@ -73,36 +96,25 @@
                             experience as a beginner Front End Developer, i have
                             aknowledge the skills necessary to build a websites.
                         </p>
-                        <div class="about__social | flex">
+                        <div class="about__social | flex flex-ai-center">
                             <a
+                                class="about__social--icon"
                                 href="https://www.facebook.com/wawal41"
                                 target="_blank"
-                            >
-                                <img
-                                    class="about__social--icon"
-                                    src="app/img/facebook.png"
-                                    alt="facebook"
-                                />
+                                ><i class="uil uil-facebook"></i>
                             </a>
                             <a
+                                class="about__social--icon"
                                 href="https://www.instagram.com/wawaaaal/"
                                 target="_blank"
                             >
-                                <img
-                                    class="about__social--icon"
-                                    src="app/img/instagram.png"
-                                    alt="instagram"
-                                />
+                                <i class="uil uil-instagram"></i>
                             </a>
                             <a
+                                class="about__social--icon"
                                 href="https://github.com/kucingliaw"
                                 target="_blank"
-                            >
-                                <img
-                                    class="about__social--icon"
-                                    src="app/img/github.png"
-                                    alt="github"
-                                />
+                                ><i class="uil uil-github-alt"></i>
                             </a>
                         </div>
                     </div>
@@ -111,7 +123,108 @@
         </section>
 
         <!---------- Contact ---------->
-        <section class="contact" id="contact"></section>
+        <section class="contact" id="contact">
+            <div class="container">
+                <h2 class="section__title" data-aos="fade-down">Contact Me</h2>
+                <p class="section__subtitle" data-aos="fade-down">
+                    Get In Touch
+                </p>
+                <div class="row flex">
+                    <!-- Contact Info -->
+                    <div class="contact__info | flex" data-aos="fade-up">
+                        <div class="contact__wrapper | flex flex-ai-center">
+                            <i class="icon uil uil-phone"></i>
+                            <div class="contact__data">
+                                <h3 class="contact__title">Phone</h3>
+                                <p class="contact__subtitle">0851-5800-xxxx</p>
+                            </div>
+                        </div>
+                        <div class="contact__wrapper | flex flex-ai-center">
+                            <i class="icon uil uil-envelope"></i>
+                            <div class="contact__data">
+                                <h3 class="contact__title">Email</h3>
+                                <p class="contact__subtitle">
+                                    wawal.wiguna@gmail.com
+                                </p>
+                            </div>
+                        </div>
+                        <div class="contact__wrapper | flex flex-ai-center">
+                            <i class="icon uil uil-map-marker"></i>
+                            <div class="contact__data">
+                                <h3 class="contact__title">Location</h3>
+                                <p class="contact__subtitle">
+                                    Jakarta - Indonesia
+                                </p>
+                            </div>
+                        </div>
+                        <img
+                            src="app/img/mail.svg"
+                            alt="Mail"
+                            class="contact__img"
+                        />
+                    </div>
+
+                    <!-- Contact Form -->
+                    <form class="contact__form" data-aos="fade-up">
+                        <div class="contact__content">
+                            <label for="name" class="contact__label"
+                                >Name</label
+                            >
+                            <input
+                                type="text"
+                                id="name"
+                                class="contact__input"
+                            />
+                        </div>
+                        <div class="contact__content">
+                            <label for="email" class="contact__label"
+                                >Email</label
+                            >
+                            <input
+                                type="email"
+                                id="email"
+                                class="contact__input"
+                            />
+                        </div>
+                        <div class="contact__content">
+                            <label for="message" class="contact__label"
+                                >Message</label
+                            >
+                            <textarea
+                                name="message"
+                                id="message"
+                                cols="0"
+                                rows="10"
+                                class="contact__input"
+                            ></textarea>
+                        </div>
+                        <div>
+                            <a href="" class="contact__btn | btn btn-primary"
+                                >Submit</a
+                            >
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer container">
+            <p class="footer__title">Copyright 2022 &copy; Kucingliaw</p>
+        </footer>
+
+        <!-- Scroll Up -->
+        <a href="#" class="scrollup show-scroll" id="scroll-up">
+            <i class="uil uil-arrow-up scrollup__icon"></i>
+        </a>
+
+        <!-- AOS JS -->
+        <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+        <script>
+            AOS.init();
+        </script>
+
+        <!-- Script JS -->
         <script src="app/js/script.js"></script>
     </body>
 </html>

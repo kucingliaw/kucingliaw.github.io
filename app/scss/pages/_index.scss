@@ -1,2 +1,4 @@
-@import 'main';
-@import 'about';
+@forward 'main';
+@forward 'about';
+@forward 'contact';
+@forward 'footer';
