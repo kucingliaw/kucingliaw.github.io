@@ -8,10 +8,12 @@
     }
 
     &__img {
-        padding: 4rem;
-        width: 40%;
+        background-image: url(../../img/blob.svg);
+        padding: 4rem 2rem 4rem 4rem;
+        width: 35%;
 
         @include u.breakpoint-down(lg) {
+            padding: 4rem;
             width: 50%;
         }
 
@@ -19,6 +21,15 @@
             margin-top: -6rem;
             margin-inline: auto;
             width: 100%;
+        }
+
+        img {
+            background: linear-gradient(
+                to bottom right,
+                var(--blue-500),
+                var(--blue-600)
+            );
+            border-radius: 70% 30% 30% 70% / 60% 40% 60% 40%;
         }
     }
 
