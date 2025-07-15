@@ -1,5 +1,6 @@
 import Intro from "@/components/Intro";
 import { Meteors } from "@/components/magicui/meteors";
+import WorkExperience from "@/components/WorkExperience";
 
 export default function Home() {
   return (
@@ -7,6 +8,7 @@ export default function Home() {
       <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
         <Meteors />
         <Intro />
+        <WorkExperience />
       </main>
     </div>
   );
