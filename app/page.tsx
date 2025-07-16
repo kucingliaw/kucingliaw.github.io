@@ -1,4 +1,5 @@
 import Contact from "@/components/Contact";
+import CustomDock from "@/components/CustomDock";
 import Education from "@/components/Education";
 import Intro from "@/components/Intro";
 import { Meteors } from "@/components/magicui/meteors";
@@ -17,6 +18,7 @@ export default function Home() {
         <Skills />
         <Projects />
         <Contact />
+        <CustomDock />
       </main>
     </div>
   );
