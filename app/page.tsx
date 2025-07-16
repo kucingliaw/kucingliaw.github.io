@@ -1,6 +1,7 @@
 import Education from "@/components/Education";
 import Intro from "@/components/Intro";
 import { Meteors } from "@/components/magicui/meteors";
+import Skills from "@/components/Skills";
 import WorkExperience from "@/components/WorkExperience";
 
 export default function Home() {
@@ -11,6 +12,7 @@ export default function Home() {
         <Intro />
         <WorkExperience />
         <Education />
+        <Skills />
       </main>
     </div>
   );
