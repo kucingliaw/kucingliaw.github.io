@@ -40,7 +40,7 @@ export default function Projects() {
             />
             <div className="flex flex-col gap-3 p-4">
               <h3 className="text-lg font-bold">{project.title}</h3>
-              <p className="text-sm text-gray-600">{project.description}</p>
+              <p className="text-base text-gray-600">{project.description}</p>
               <div className="flex flex-wrap gap-2">
                 {project.tech.map((tech, index) => (
                   <div
