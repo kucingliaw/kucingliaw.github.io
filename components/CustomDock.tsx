@@ -1,6 +1,13 @@
 "use client";
 
-import { CalendarIcon, HomeIcon, MailIcon, PencilIcon } from "lucide-react";
+import {
+  CalendarIcon,
+  HomeIcon,
+  MailIcon,
+  Moon,
+  PencilIcon,
+  Sun,
+} from "lucide-react";
 import Link from "next/link";
 import React from "react";
 
@@ -15,6 +22,7 @@ import {
 } from "@/components/ui/tooltip";
 import { cn } from "@/lib/utils";
 import { Dock, DockIcon } from "@/components/magicui/dock";
+import { useTheme } from "next-themes";
 
 export type IconProps = React.HTMLAttributes<SVGElement>;
 
@@ -93,66 +101,83 @@ const DATA = {
   },
 };
 
-export function CustomDock() {
+export function CustomDock({
+  orientation,
+}: {
+  orientation: "vertical" | "horizontal";
+}) {
+  const { resolvedTheme, setTheme } = useTheme();
+
   return (
-    <TooltipProvider>
-      <Dock direction="middle">
-        {DATA.navbar.map((item) => (
-          <DockIcon key={item.label}>
+    <div className="fixed left-40 top-1/2 bottom-1/2 flex items-center justify-center">
+      <TooltipProvider>
+        <Dock direction="middle" orientation={orientation}>
+          {DATA.navbar.map((item) => (
+            <DockIcon key={item.label}>
+              <Tooltip>
+                <TooltipTrigger asChild>
+                  <Link
+                    href={item.href}
+                    aria-label={item.label}
+                    className={cn(
+                      buttonVariants({ variant: "ghost", size: "icon" }),
+                      "size-12 rounded-full"
+                    )}
+                  >
+                    <item.icon className="size-4" />
+                  </Link>
+                </TooltipTrigger>
+                <TooltipContent>
+                  <p>{item.label}</p>
+                </TooltipContent>
+              </Tooltip>
+            </DockIcon>
+          ))}
+          <Separator orientation="horizontal" className="h-full" />
+          {Object.entries(DATA.contact.social).map(([name, social]) => (
+            <DockIcon key={name}>
+              <Tooltip>
+                <TooltipTrigger asChild>
+                  <Link
+                    href={social.url}
+                    aria-label={social.name}
+                    className={cn(
+                      buttonVariants({ variant: "ghost", size: "icon" }),
+                      "size-12 rounded-full"
+                    )}
+                  >
+                    <social.icon className="size-4" />
+                  </Link>
+                </TooltipTrigger>
+                <TooltipContent>
+                  <p>{name}</p>
+                </TooltipContent>
+              </Tooltip>
+            </DockIcon>
+          ))}
+          <Separator orientation="horizontal" className="h-full" />
+          <DockIcon>
             <Tooltip>
               <TooltipTrigger asChild>
-                <Link
-                  href={item.href}
-                  aria-label={item.label}
-                  className={cn(
-                    buttonVariants({ variant: "ghost", size: "icon" }),
-                    "size-12 rounded-full"
+                <div className="size-12 rounded-full flex items-center justify-center">
+                  {resolvedTheme === "light" ? (
+                    <Sun className="w-5 h-5" onClick={() => setTheme("dark")} />
+                  ) : (
+                    <Moon
+                      className="w-5 h-5"
+                      onClick={() => setTheme("light")}
+                    />
                   )}
-                >
-                  <item.icon className="size-4" />
-                </Link>
+                </div>
               </TooltipTrigger>
               <TooltipContent>
-                <p>{item.label}</p>
+                <p>Theme</p>
               </TooltipContent>
             </Tooltip>
           </DockIcon>
-        ))}
-        <Separator orientation="vertical" className="h-full" />
-        {Object.entries(DATA.contact.social).map(([name, social]) => (
-          <DockIcon key={name}>
-            <Tooltip>
-              <TooltipTrigger asChild>
-                <Link
-                  href={social.url}
-                  aria-label={social.name}
-                  className={cn(
-                    buttonVariants({ variant: "ghost", size: "icon" }),
-                    "size-12 rounded-full"
-                  )}
-                >
-                  <social.icon className="size-4" />
-                </Link>
-              </TooltipTrigger>
-              <TooltipContent>
-                <p>{name}</p>
-              </TooltipContent>
-            </Tooltip>
-          </DockIcon>
-        ))}
-        <Separator orientation="vertical" className="h-full py-2" />
-        <DockIcon>
-          <Tooltip>
-            <TooltipTrigger asChild>
-              {/* <ModeToggle className="rounded-full" /> */}
-            </TooltipTrigger>
-            <TooltipContent>
-              <p>Theme</p>
-            </TooltipContent>
-          </Tooltip>
-        </DockIcon>
-      </Dock>
-    </TooltipProvider>
+        </Dock>
+      </TooltipProvider>
+    </div>
   );
 }
 

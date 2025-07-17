@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Button } from "./ui/button";
+// sadsadada
 
 interface Project {
   title: string;
@@ -30,7 +31,7 @@ export default function Projects() {
         {projectsData.map((project, index) => (
           <div
             key={index}
-            className="flex flex-col border-gray-100 shadow-sm rounded-md"
+            className="flex flex-col border border-gray-100 dark:border-gray-800 shadow-sm rounded-md"
           >
             <video
               src={project.previewVideo}
@@ -40,7 +41,9 @@ export default function Projects() {
             />
             <div className="flex flex-col gap-3 p-4">
               <h3 className="text-lg font-bold">{project.title}</h3>
-              <p className="text-base text-gray-600">{project.description}</p>
+              <p className="text-base text-gray-600 dark:text-gray-400">
+                {project.description}
+              </p>
               <div className="flex flex-wrap gap-2">
                 {project.tech.map((tech, index) => (
                   <div

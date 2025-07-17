@@ -20,6 +20,7 @@ export interface DockProps extends VariantProps<typeof dockVariants> {
   iconDistance?: number;
   direction?: "top" | "middle" | "bottom";
   children: React.ReactNode;
+  orientation?: "vertical" | "horizontal";
 }
 
 const DEFAULT_SIZE = 40;
@@ -27,7 +28,7 @@ const DEFAULT_MAGNIFICATION = 60;
 const DEFAULT_DISTANCE = 140;
 
 const dockVariants = cva(
-  "supports-backdrop-blur:bg-white/10 supports-backdrop-blur:dark:bg-black/10 mx-auto mt-8 flex h-[58px] w-max items-center justify-center gap-2 rounded-2xl border p-2 backdrop-blur-md"
+  "supports-backdrop-blur:bg-white/10 supports-backdrop-blur:dark:bg-black/10 mx-auto mt-8 flex h-max w-max items-center justify-center gap-2 rounded-2xl border p-2 backdrop-blur-md"
 );
 
 const Dock = React.forwardRef<HTMLDivElement, DockProps>(
@@ -39,6 +40,7 @@ const Dock = React.forwardRef<HTMLDivElement, DockProps>(
       iconMagnification = DEFAULT_MAGNIFICATION,
       iconDistance = DEFAULT_DISTANCE,
       direction = "middle",
+      orientation = "horizontal",
       ...props
     },
     ref
@@ -73,6 +75,8 @@ const Dock = React.forwardRef<HTMLDivElement, DockProps>(
           "items-start": direction === "top",
           "items-center": direction === "middle",
           "items-end": direction === "bottom",
+          "flex-col": orientation === "vertical",
+          "flex-row": orientation === "horizontal",
         })}
       >
         {renderChildren()}

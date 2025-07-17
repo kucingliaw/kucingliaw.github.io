@@ -5,7 +5,7 @@ export default function Intro() {
     <div className="flex gap-4">
       <div className="flex flex-col gap-2 w-9/12">
         <h1 className="text-4xl font-bold">Hi! I&apos;m Wawal</h1>
-        <p className="text-base text-gray-700">
+        <p className="text-base text-gray-700 dark:text-gray-400">
           I&apos;m a Front End Developer currently in college at Widyatama
           University, with hands-on experience from various side projects.
           I&apos;m skilled in Next.js, various front-end tools, and have basic

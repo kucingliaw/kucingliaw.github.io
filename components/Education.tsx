@@ -39,7 +39,9 @@ export default function Education() {
               <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
                 {item.courseName} at {item.schoolName}
               </h3>
-              <p className="mb-2 text-base text-gray-700">{item.address}</p>
+              <p className="mb-2 text-base text-gray-700 dark:text-gray-400">
+                {item.address}
+              </p>
             </li>
           ))}
         </ol>

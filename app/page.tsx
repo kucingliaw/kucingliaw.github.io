@@ -18,7 +18,7 @@ export default function Home() {
         <Skills />
         <Projects />
         <Contact />
-        <CustomDock />
+        <CustomDock orientation="vertical" />
       </main>
     </div>
   );
