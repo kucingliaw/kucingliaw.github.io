@@ -57,11 +57,15 @@ export default function Projects() {
               <div className="flex gap-2 mt-2">
                 {project.link && (
                   <Link href={project.link} target="_blank">
-                    <Button variant="default">View</Button>
+                    <Button variant="default" className="cursor-pointer">
+                      View
+                    </Button>
                   </Link>
                 )}
                 <Link href={project.code} target="_blank">
-                  <Button variant="outline">Code</Button>
+                  <Button variant="outline" className="cursor-pointer">
+                    Code
+                  </Button>
                 </Link>
               </div>
             </div>

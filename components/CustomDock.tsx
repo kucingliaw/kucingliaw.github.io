@@ -242,7 +242,7 @@ export function CustomDock({
                     type="button"
                     className={cn(
                       buttonVariants({ variant: "ghost", size: "icon" }),
-                      "size-12 rounded-full flex items-center justify-center"
+                      "size-12 rounded-full flex items-center justify-center cursor-pointer"
                     )}
                     aria-label="Toggle theme"
                     onClick={() =>
