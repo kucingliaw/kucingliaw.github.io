@@ -68,34 +68,61 @@ const Icons = {
       ></path>
     </svg>
   ),
+  instagram: (props: IconProps) => (
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}
+    >
+      <title>Instagram</title>
+      <rect x="2" y="2" width="20" height="20" rx="5" />
+      <circle cx="12" cy="12" r="5" />
+      <circle cx="17" cy="7" r="1" />
+    </svg>
+  ),
 };
 
 const DATA = {
   navbar: [
-    { href: "#", icon: HomeIcon, label: "Home" },
-    { href: "#", icon: PencilIcon, label: "Blog" },
+    { href: "/", icon: HomeIcon, label: "Home" },
+    // { href: "#", icon: PencilIcon, label: "Blog" }, // Blog icon commented out
   ],
   contact: {
     social: {
       GitHub: {
         name: "GitHub",
-        url: "#",
+        url: "https://github.com/kucingliaw",
         icon: Icons.github,
+        external: true,
       },
-      LinkedIn: {
-        name: "LinkedIn",
-        url: "#",
-        icon: Icons.linkedin,
-      },
+      // LinkedIn: {
+      //   name: "LinkedIn",
+      //   url: "#",
+      //   icon: Icons.linkedin,
+      //   external: true,
+      // }, // LinkedIn icon commented out
       X: {
         name: "X",
-        url: "#",
+        url: "https://x.com/kucingliaw",
         icon: Icons.x,
+        external: true,
       },
-      email: {
+      Email: {
         name: "Send Email",
-        url: "#",
+        url: "mailto:wawal.wiguna@gmail.com",
         icon: Icons.email,
+        external: true,
+      },
+      Instagram: {
+        name: "Instagram",
+        url: "https://instagram.com/kucingliaw",
+        icon: Icons.instagram,
+        external: true,
       },
     },
   },
@@ -148,13 +175,27 @@ export function CustomDock({
                       aria-label={item.label}
                       className={cn(
                         buttonVariants({ variant: "ghost", size: "icon" }),
-                        "size-12 rounded-full"
+                        "size-12 rounded-full cursor-pointer"
                       )}
+                      // Home is internal, so no target _blank
+                      onClick={
+                        item.label === "Home"
+                          ? (e) => {
+                              if (item.href === "/") {
+                                e.preventDefault();
+                                window.scrollTo({ top: 0, behavior: "smooth" });
+                              }
+                            }
+                          : undefined
+                      }
                     >
                       <item.icon className="size-4" />
                     </Link>
                   </TooltipTrigger>
-                  <TooltipContent>
+                  <TooltipContent
+                    side={!isMobile ? "right" : "bottom"}
+                    sideOffset={2}
+                  >
                     <p>{item.label}</p>
                   </TooltipContent>
                 </Tooltip>
@@ -173,13 +214,18 @@ export function CustomDock({
                       aria-label={social.name}
                       className={cn(
                         buttonVariants({ variant: "ghost", size: "icon" }),
-                        "size-12 rounded-full"
+                        "size-12 rounded-full cursor-pointer"
                       )}
+                      target="_blank"
+                      rel="noopener noreferrer"
                     >
                       <social.icon className="size-4" />
                     </Link>
                   </TooltipTrigger>
-                  <TooltipContent>
+                  <TooltipContent
+                    side={!isMobile ? "right" : "bottom"}
+                    sideOffset={2}
+                  >
                     <p>{name}</p>
                   </TooltipContent>
                 </Tooltip>
@@ -192,21 +238,28 @@ export function CustomDock({
             <DockIcon>
               <Tooltip>
                 <TooltipTrigger asChild>
-                  <div className="size-12 rounded-full flex items-center justify-center">
-                    {resolvedTheme === "light" ? (
-                      <Sun
-                        className="w-5 h-5"
-                        onClick={() => setTheme("dark")}
-                      />
-                    ) : (
-                      <Moon
-                        className="w-5 h-5"
-                        onClick={() => setTheme("light")}
-                      />
+                  <button
+                    type="button"
+                    className={cn(
+                      buttonVariants({ variant: "ghost", size: "icon" }),
+                      "size-12 rounded-full flex items-center justify-center"
                     )}
-                  </div>
+                    aria-label="Toggle theme"
+                    onClick={() =>
+                      setTheme(resolvedTheme === "light" ? "dark" : "light")
+                    }
+                  >
+                    {resolvedTheme === "light" ? (
+                      <Sun className="w-5 h-5" />
+                    ) : (
+                      <Moon className="w-5 h-5" />
+                    )}
+                  </button>
                 </TooltipTrigger>
-                <TooltipContent>
+                <TooltipContent
+                  side={!isMobile ? "right" : "bottom"}
+                  sideOffset={2}
+                >
                   <p>Theme</p>
                 </TooltipContent>
               </Tooltip>

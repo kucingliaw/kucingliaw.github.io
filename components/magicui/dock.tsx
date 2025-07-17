@@ -6,8 +6,8 @@ import {
   MotionProps,
   MotionValue,
   useMotionValue,
-  useSpring,
-  useTransform,
+  // useSpring,
+  // useTransform,
 } from "motion/react";
 import React, { PropsWithChildren, useRef } from "react";
 
@@ -119,49 +119,11 @@ const DockIcon = ({
 }: DockIconProps) => {
   const ref = useRef<HTMLDivElement>(null);
   const padding = Math.max(6, size * 0.2);
-  const defaultMouseX = useMotionValue(Infinity);
-
-  const distanceCalc = useTransform(mouseX ?? defaultMouseX, (val: number) => {
-    const bounds = ref.current?.getBoundingClientRect() ?? { x: 0, width: 0 };
-    return val - bounds.x - bounds.width / 2;
-  });
-
-  const distanceCalcY = useTransform(mouseX ?? defaultMouseX, (val: number) => {
-    const bounds = ref.current?.getBoundingClientRect() ?? { y: 0, height: 0 };
-    return val - bounds.y - bounds.height / 2;
-  });
-
-  const sizeTransform = useTransform(
-    distanceCalc,
-    [-distance, 0, distance],
-    [size, magnification, size]
-  );
-
-  const sizeTransformY = useTransform(
-    distanceCalcY,
-    [-distance, 0, distance],
-    [size, magnification, size]
-  );
-
-  const scaleSize = useSpring(sizeTransform, {
-    mass: 0.1,
-    stiffness: 150,
-    damping: 12,
-  });
-
-  const scaleY = useSpring(
-    useTransform(distanceCalcY, [-distance, 0, distance], [1, 1.5, 1]),
-    {
-      mass: 0.1,
-      stiffness: 150,
-      damping: 12,
-    }
-  );
-
+  // Remove all transform/magnification logic
   return (
     <motion.div
       ref={ref}
-      style={{ width: scaleSize, height: scaleSize, padding }}
+      style={{ width: size, height: size, padding }}
       className={cn(
         "flex aspect-square cursor-pointer items-center justify-center rounded-full",
         className
