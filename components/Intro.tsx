@@ -2,8 +2,8 @@ import Image from "next/image";
 
 export default function Intro() {
   return (
-    <div className="flex gap-4">
-      <div className="flex flex-col gap-2 w-9/12">
+    <div className="flex gap-4 flex-col-reverse sm:flex-row items-center justify-between">
+      <div className="flex flex-col gap-2 md:w-9/12 sm:w-full">
         <h1 className="text-4xl font-bold">Hi! I&apos;m Wawal</h1>
         <p className="text-base text-gray-700 dark:text-gray-400">
           I&apos;m a Front End Developer currently in college at Widyatama
@@ -14,7 +14,7 @@ export default function Intro() {
           crafting seamless user experiences.
         </p>
       </div>
-      <div className="w-3/12 flex items-center justify-center">
+      <div className="md:w-3/12 flex items-center justify-center sm:w-full">
         <Image
           src="/images/wawal.jpg"
           alt="Wawal's Picture"

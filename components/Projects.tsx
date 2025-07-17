@@ -27,7 +27,7 @@ export default function Projects() {
     <div className="flex flex-col gap-4">
       <h2 className="text-2xl font-bold">Projects</h2>
 
-      <div className="grid grid-cols-2 gap-4">
+      <div className="grid md:grid-cols-2 sm:grid-cols-1 gap-4">
         {projectsData.map((project, index) => (
           <div
             key={index}

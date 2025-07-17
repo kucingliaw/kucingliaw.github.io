@@ -9,7 +9,7 @@ import {
   Sun,
 } from "lucide-react";
 import Link from "next/link";
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 // import { ModeToggle } from "@/components/mode-toggle";
 import { buttonVariants } from "@/components/ui/button";
@@ -107,76 +107,113 @@ export function CustomDock({
   orientation: "vertical" | "horizontal";
 }) {
   const { resolvedTheme, setTheme } = useTheme();
+  const [isMobile, setIsMobile] = useState(false);
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+    setIsMobile(window.innerWidth < 768);
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+
+    handleResize(); // Initial check
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
 
   return (
-    <div className="fixed left-40 top-1/2 bottom-1/2 flex items-center justify-center">
-      <TooltipProvider>
-        <Dock direction="middle" orientation={orientation}>
-          {DATA.navbar.map((item) => (
-            <DockIcon key={item.label}>
+    <div
+      className={
+        isMobile
+          ? "fixed left-1/2 right-1/2 bottom-5 flex items-center justify-center"
+          : "fixed left-40 top-1/2 bottom-1/2 flex items-center justify-center"
+      }
+    >
+      {mounted && (
+        <TooltipProvider>
+          <Dock
+            direction="middle"
+            orientation={isMobile ? "horizontal" : "vertical"}
+          >
+            {DATA.navbar.map((item) => (
+              <DockIcon key={item.label}>
+                <Tooltip>
+                  <TooltipTrigger asChild>
+                    <Link
+                      href={item.href}
+                      aria-label={item.label}
+                      className={cn(
+                        buttonVariants({ variant: "ghost", size: "icon" }),
+                        "size-12 rounded-full"
+                      )}
+                    >
+                      <item.icon className="size-4" />
+                    </Link>
+                  </TooltipTrigger>
+                  <TooltipContent>
+                    <p>{item.label}</p>
+                  </TooltipContent>
+                </Tooltip>
+              </DockIcon>
+            ))}
+            <Separator
+              orientation={isMobile ? "vertical" : "horizontal"}
+              className="h-full"
+            />
+            {Object.entries(DATA.contact.social).map(([name, social]) => (
+              <DockIcon key={name}>
+                <Tooltip>
+                  <TooltipTrigger asChild>
+                    <Link
+                      href={social.url}
+                      aria-label={social.name}
+                      className={cn(
+                        buttonVariants({ variant: "ghost", size: "icon" }),
+                        "size-12 rounded-full"
+                      )}
+                    >
+                      <social.icon className="size-4" />
+                    </Link>
+                  </TooltipTrigger>
+                  <TooltipContent>
+                    <p>{name}</p>
+                  </TooltipContent>
+                </Tooltip>
+              </DockIcon>
+            ))}
+            <Separator
+              orientation={isMobile ? "vertical" : "horizontal"}
+              className="h-full"
+            />
+            <DockIcon>
               <Tooltip>
                 <TooltipTrigger asChild>
-                  <Link
-                    href={item.href}
-                    aria-label={item.label}
-                    className={cn(
-                      buttonVariants({ variant: "ghost", size: "icon" }),
-                      "size-12 rounded-full"
+                  <div className="size-12 rounded-full flex items-center justify-center">
+                    {resolvedTheme === "light" ? (
+                      <Sun
+                        className="w-5 h-5"
+                        onClick={() => setTheme("dark")}
+                      />
+                    ) : (
+                      <Moon
+                        className="w-5 h-5"
+                        onClick={() => setTheme("light")}
+                      />
                     )}
-                  >
-                    <item.icon className="size-4" />
-                  </Link>
+                  </div>
                 </TooltipTrigger>
                 <TooltipContent>
-                  <p>{item.label}</p>
+                  <p>Theme</p>
                 </TooltipContent>
               </Tooltip>
             </DockIcon>
-          ))}
-          <Separator orientation="horizontal" className="h-full" />
-          {Object.entries(DATA.contact.social).map(([name, social]) => (
-            <DockIcon key={name}>
-              <Tooltip>
-                <TooltipTrigger asChild>
-                  <Link
-                    href={social.url}
-                    aria-label={social.name}
-                    className={cn(
-                      buttonVariants({ variant: "ghost", size: "icon" }),
-                      "size-12 rounded-full"
-                    )}
-                  >
-                    <social.icon className="size-4" />
-                  </Link>
-                </TooltipTrigger>
-                <TooltipContent>
-                  <p>{name}</p>
-                </TooltipContent>
-              </Tooltip>
-            </DockIcon>
-          ))}
-          <Separator orientation="horizontal" className="h-full" />
-          <DockIcon>
-            <Tooltip>
-              <TooltipTrigger asChild>
-                <div className="size-12 rounded-full flex items-center justify-center">
-                  {resolvedTheme === "light" ? (
-                    <Sun className="w-5 h-5" onClick={() => setTheme("dark")} />
-                  ) : (
-                    <Moon
-                      className="w-5 h-5"
-                      onClick={() => setTheme("light")}
-                    />
-                  )}
-                </div>
-              </TooltipTrigger>
-              <TooltipContent>
-                <p>Theme</p>
-              </TooltipContent>
-            </Tooltip>
-          </DockIcon>
-        </Dock>
-      </TooltipProvider>
+          </Dock>
+        </TooltipProvider>
+      )}
     </div>
   );
 }
